@@ -1,0 +1,206 @@
+```html
+<style>
+  :root {
+    --navy: #0b1f3a;
+    --dark-navy: #071629;
+    --deep-navy: #020a14;
+    --medium-navy: #163b66;
+    --beige: #f4e7d2;
+    --soft-beige: #fff8ed;
+    --gold: #c79a56;
+    --white: #ffffff;
+  }
+
+  .site-footer {
+    font-family: Tahoma, Arial, sans-serif;
+    color: var(--soft-beige);
+    background:
+      radial-gradient(circle at top left, rgba(199, 154, 86, 0.18), transparent 30%),
+      linear-gradient(135deg, var(--deep-navy), var(--dark-navy), var(--navy));
+    padding: 55px 0 20px;
+  }
+
+  .footer-container {
+    width: min(1200px, calc(100% - 32px));
+    margin: auto;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 28px;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .footer-mark {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--beige);
+    font-weight: 800;
+    font-size: 22px;
+    background: linear-gradient(145deg, var(--navy), var(--deep-navy));
+    border: 2px solid rgba(244, 231, 210, 0.45);
+  }
+
+  .footer-logo strong {
+    display: block;
+    font-size: 24px;
+  }
+
+  .footer-logo span {
+    color: var(--beige);
+    font-size: 13px;
+  }
+
+  .footer-about {
+    color: rgba(255, 248, 237, 0.82);
+    line-height: 1.9;
+    margin: 0;
+  }
+
+  .footer-col h3 {
+    margin: 0 0 15px;
+    color: var(--beige);
+    font-size: 18px;
+  }
+
+  .footer-col a,
+  .footer-col p {
+    display: block;
+    margin: 0 0 10px;
+    color: rgba(255, 248, 237, 0.82);
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.7;
+    transition: 0.25s ease;
+  }
+
+  .footer-col a:hover {
+    color: var(--gold);
+    transform: translateX(-4px);
+  }
+
+  .social-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .social-links a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(244, 231, 210, 0.25);
+    color: var(--beige);
+    font-weight: 700;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(244, 231, 210, 0.16);
+    margin-top: 35px;
+    padding-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    color: rgba(255, 248, 237, 0.72);
+    font-size: 13px;
+  }
+
+  .back-top {
+    color: var(--deep-navy);
+    background: var(--beige);
+    padding: 9px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  @media (max-width: 850px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+
+<footer class="site-footer" id="contact">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <div class="footer-mark">R</div>
+          <div>
+            <strong>Rouh sweet</strong>
+            <span>Luxury Chocolate</span>
+          </div>
+        </div>
+
+        <p class="footer-about">
+          متجر متخصص في الشوكولاتة الفاخرة، نقدم قطع شوكولاتة أنيقة بطابع راقٍ
+          يجمع بين المذاق الفخم والتغليف الجميل المناسب للهدايا والمناسبات.
+        </p>
+
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="TikTok">TK</a>
+          <a href="#" aria-label="WhatsApp">WA</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>روابط سريعة</h3>
+        <a href="index.html">الرئيسية</a>
+        <a href="index.html#products">المنتجات</a>
+        <a href="index.html#about">عن Rouh</a>
+        <a href="index.html#offers">العروض</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>منتجاتنا</h3>
+        <a href="index.html#products">بوكسات الشوكولاتة</a>
+        <a href="index.html#products">شوكولاتة الضيافة</a>
+        <a href="index.html#products">هدايا المناسبات</a>
+        <a href="index.html#products">تشكيلات فاخرة</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>تواصل معنا</h3>
+        <p>مكة المكرمة - المملكة العربية السعودية</p>
+        <p>الهاتف: 05xxxxxxxx</p>
+        <p>البريد: info@rouhsweet.com</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="footerYear"></span> Rouh sweet. جميع الحقوق محفوظة.</span>
+      <a href="#" class="back-top">العودة للأعلى</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (() => {
+    const year = document.getElementById("footerYear");
+    if (year) {
+      year.textContent = new Date().getFullYear();
+    }
+  })();
+</script>
+```

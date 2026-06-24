@@ -1,0 +1,689 @@
+```html
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap");
+
+  :root {
+    --burgundy: #0b1f3a;
+    --dark-burgundy: #071629;
+    --deep-burgundy: #020a14;
+    --medium-burgundy: #163b66;
+    --beige: #f4e7d2;
+    --soft-beige: #fff8ed;
+    --gold: #c79a56;
+    --white: #ffffff;
+    --text-dark: #0b1f3a;
+    --text-soft: #6b7280;
+    --shadow: 0 14px 35px rgba(2, 10, 20, 0.28);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  .top-header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    font-family: "Almarai", sans-serif;
+    background:
+      radial-gradient(circle at top right, rgba(199, 154, 86, 0.15), transparent 30%),
+      linear-gradient(135deg, #020a14, #071629, #0b1f3a);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(244, 231, 210, 0.18);
+    direction: rtl;
+  }
+
+  .header-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+  }
+
+  .logo {
+    text-decoration: none;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: max-content;
+  }
+
+  .logo-image-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    padding: 4px;
+    background:
+      linear-gradient(145deg, #ffffff, var(--beige) 35%, var(--gold), var(--burgundy));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      0 12px 28px rgba(0, 0, 0, 0.28),
+      0 0 0 4px rgba(244, 231, 210, 0.12);
+    border: 1px solid rgba(244, 231, 210, 0.75);
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .logo-image-circle img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+    object-fit: contain;
+    object-position: center;
+    background: #061629;
+    padding: 6px;
+    border: 2px solid rgba(255, 255, 255, 0.95);
+  }
+
+  .logo h1 {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    color: var(--white);
+  }
+
+  .logo span {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--beige);
+    font-weight: 400;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 6px;
+    border-radius: 999px;
+    background: rgba(255, 248, 237, 0.10);
+    border: 1px solid rgba(244, 231, 210, 0.20);
+  }
+
+  .nav-links a {
+    color: var(--soft-beige);
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 999px;
+    transition: 0.25s ease;
+    font-size: 15px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    background: var(--beige);
+    color: var(--deep-burgundy);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  }
+
+  .mobile-menu-head {
+    display: none;
+  }
+
+  .mobile-contact-link {
+    display: none;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .search-form {
+    background: rgba(255, 248, 237, 0.92);
+    padding: 5px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(244, 231, 210, 0.65);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  }
+
+  .search-form input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 9px 12px;
+    width: 160px;
+    font-family: "Almarai", sans-serif;
+    color: var(--text-dark);
+    font-size: 14px;
+  }
+
+  .search-form input::placeholder {
+    color: #9b8978;
+  }
+
+  .search-form button {
+    border: none;
+    background: linear-gradient(135deg, var(--burgundy), var(--dark-burgundy));
+    color: var(--white);
+    padding: 9px 15px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: "Almarai", sans-serif;
+    font-weight: 700;
+    transition: 0.25s ease;
+  }
+
+  .search-form button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(2, 10, 20, 0.28);
+  }
+
+  .contact-button {
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--beige), var(--gold));
+    color: var(--deep-burgundy);
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-family: "Almarai", sans-serif;
+    box-shadow: 0 9px 20px rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(244, 231, 210, 0.75);
+    transition: 0.25s ease;
+    white-space: nowrap;
+  }
+
+  .contact-button:hover {
+    transform: translateY(-1px);
+    background: var(--soft-beige);
+  }
+
+  .cart-button {
+    border: none;
+    background: rgba(255, 248, 237, 0.12);
+    color: var(--soft-beige);
+    padding: 12px 17px;
+    border-radius: 999px;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    font-family: "Almarai", sans-serif;
+    box-shadow: 0 9px 20px rgba(0, 0, 0, 0.14);
+    border: 1px solid rgba(244, 231, 210, 0.25);
+    transition: 0.25s ease;
+  }
+
+  .cart-button:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 248, 237, 0.20);
+  }
+
+  .cart-count {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    background: var(--beige);
+    color: var(--burgundy);
+    min-width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 12px;
+    font-weight: 800;
+    border: 2px solid var(--white);
+  }
+
+  .menu-button {
+    display: none;
+    border: none;
+    background: rgba(255, 248, 237, 0.92);
+    color: var(--burgundy);
+    width: 45px;
+    height: 45px;
+    border-radius: 15px;
+    font-size: 23px;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(244, 231, 210, 0.75);
+    transition: 0.25s ease;
+  }
+
+  .menu-button:hover {
+    transform: translateY(-1px);
+    background: var(--white);
+  }
+
+  .mobile-menu-overlay {
+    display: none;
+  }
+
+  .search-form button:focus,
+  .cart-button:focus,
+  .menu-button:focus,
+  .contact-button:focus,
+  .nav-links a:focus,
+  .mobile-close-button:focus {
+    outline: 3px solid rgba(244, 231, 210, 0.35);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 1080px) {
+    .search-form input {
+      width: 125px;
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .header-container {
+      flex-wrap: nowrap;
+      gap: 12px;
+    }
+
+    .menu-button {
+      display: grid;
+      place-items: center;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 1001;
+      width: min(335px, 86vw);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      gap: 10px;
+      padding: 20px;
+      border-radius: 28px 0 0 28px;
+      background:
+        radial-gradient(circle at top right, rgba(199, 154, 86, 0.16), transparent 35%),
+        linear-gradient(145deg, #020a14, #071629, #0b1f3a);
+      border: 1px solid rgba(244, 231, 210, 0.26);
+      box-shadow: -18px 0 45px rgba(0, 0, 0, 0.35);
+      transform: translateX(110%);
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.28s ease;
+    }
+
+    .nav-links.show {
+      transform: translateX(0);
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .mobile-menu-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 0 14px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid rgba(244, 231, 210, 0.18);
+      color: var(--beige);
+    }
+
+    .mobile-menu-head strong {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .mobile-close-button {
+      border: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      cursor: pointer;
+      background: rgba(255, 248, 237, 0.92);
+      color: var(--burgundy);
+      font-size: 25px;
+      font-family: "Almarai", sans-serif;
+      display: grid;
+      place-items: center;
+    }
+
+    .nav-links a {
+      width: 100%;
+      text-align: center;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 248, 237, 0.08);
+      border: 1px solid rgba(244, 231, 210, 0.12);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: linear-gradient(135deg, var(--beige), var(--gold));
+      color: var(--deep-burgundy);
+    }
+
+    .mobile-contact-link {
+      display: block;
+    }
+
+    .mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: block;
+      background: rgba(2, 10, 20, 0.45);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.25s ease;
+    }
+
+    .mobile-menu-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .contact-button {
+      display: none;
+    }
+
+    .search-form {
+      display: none;
+    }
+
+    .header-container {
+      padding: 13px 14px;
+    }
+
+    .logo-image-circle {
+      width: 70px;
+      height: 70px;
+      padding: 3px;
+    }
+
+    .logo-image-circle img {
+      padding: 5px;
+    }
+
+    .logo h1 {
+      font-size: 21px;
+    }
+
+    .logo span {
+      display: none;
+    }
+
+    .header-actions {
+      margin-right: auto;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .cart-button {
+      padding: 11px 14px;
+      font-size: 13px;
+    }
+
+    .menu-button {
+      width: 42px;
+      height: 42px;
+    }
+
+    .logo h1 {
+      font-size: 19px;
+    }
+  }
+</style>
+
+<header class="top-header">
+  <div class="header-container">
+
+    <a href="index.html" class="logo" aria-label="الانتقال إلى الصفحة الرئيسية">
+      <div class="logo-image-circle">
+        <img src="media/logo.png" alt="شعار Rouh sweet">
+      </div>
+
+      <div>
+        <h1>Rouh sweet</h1>
+        <span>شوكولاتة فاخرة بذوق أنيق</span>
+      </div>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="روابط الموقع">
+      <div class="mobile-menu-head">
+        <strong>القائمة</strong>
+        <button
+          class="mobile-close-button"
+          type="button"
+          id="mobileCloseButton"
+          aria-label="إغلاق القائمة"
+        >
+          ×
+        </button>
+      </div>
+
+      <a href="index.html" data-page="index">الرئيسية</a>
+      <a href="index.html#products">المنتجات</a>
+      <a href="index.html#offers">العروض</a>
+      <a href="index.html#about">عن المتجر</a>
+      <a href="contact.html" class="mobile-contact-link" data-page="contact">اتصل بنا</a>
+    </nav>
+
+    <div class="header-actions">
+      <form class="search-form" id="searchForm" role="search">
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="ابحث عن شوكولاتة..."
+          aria-label="البحث عن منتج"
+          maxlength="60"
+        >
+        <button type="submit">بحث</button>
+      </form>
+
+      <a href="contact.html" class="contact-button" data-page="contact">اتصل بنا</a>
+
+      <button class="cart-button" type="button" id="cartButton" aria-label="عرض السلة">
+        السلة
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+
+      <button
+        class="menu-button"
+        type="button"
+        id="menuButton"
+        aria-label="فتح وإغلاق القائمة"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+<script>
+  (function () {
+    "use strict";
+
+    const menuButton = document.getElementById("menuButton");
+    const mobileCloseButton = document.getElementById("mobileCloseButton");
+    const navLinks = document.getElementById("navLinks");
+    const mobileMenuOverlay = document.getElementById("mobileMenuOverlay");
+    const searchForm = document.getElementById("searchForm");
+    const searchInput = document.getElementById("searchInput");
+    const cartButton = document.getElementById("cartButton");
+    const cartCount = document.getElementById("cartCount");
+
+    const CART_KEY = "rouhSweetCart";
+
+    function getCartItems() {
+      try {
+        const storedCart = localStorage.getItem(CART_KEY);
+        const cartItems = JSON.parse(storedCart || "[]");
+        return Array.isArray(cartItems) ? cartItems : [];
+      } catch (error) {
+        console.error("Cart read error:", error);
+        return [];
+      }
+    }
+
+    function updateCartCount() {
+      const cartItems = getCartItems();
+
+      if (cartCount) {
+        cartCount.textContent = cartItems.length;
+      }
+    }
+
+    function openMobileMenu() {
+      if (!navLinks || !menuButton || !mobileMenuOverlay) return;
+
+      navLinks.classList.add("show");
+      mobileMenuOverlay.classList.add("show");
+      document.body.classList.add("menu-open");
+      menuButton.setAttribute("aria-expanded", "true");
+      menuButton.textContent = "×";
+    }
+
+    function closeMobileMenu() {
+      if (!navLinks || !menuButton || !mobileMenuOverlay) return;
+
+      navLinks.classList.remove("show");
+      mobileMenuOverlay.classList.remove("show");
+      document.body.classList.remove("menu-open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.textContent = "☰";
+    }
+
+    function toggleMobileMenu() {
+      if (!navLinks) return;
+
+      const isOpen = navLinks.classList.contains("show");
+
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    }
+
+    function setActiveLink() {
+      if (!navLinks) return;
+
+      const currentPage = window.location.pathname.split("/").pop() || "index.html";
+      const links = navLinks.querySelectorAll("a");
+
+      links.forEach(function (link) {
+        link.classList.remove("active");
+
+        const href = link.getAttribute("href") || "";
+
+        if (currentPage === "contact.html" && href === "contact.html") {
+          link.classList.add("active");
+        }
+
+        if ((currentPage === "index.html" || currentPage === "") && href === "index.html") {
+          link.classList.add("active");
+        }
+      });
+    }
+
+    if (menuButton && navLinks) {
+      menuButton.addEventListener("click", toggleMobileMenu);
+    }
+
+    if (mobileCloseButton) {
+      mobileCloseButton.addEventListener("click", closeMobileMenu);
+    }
+
+    if (mobileMenuOverlay) {
+      mobileMenuOverlay.addEventListener("click", closeMobileMenu);
+    }
+
+    if (navLinks) {
+      navLinks.addEventListener("click", function (event) {
+        if (event.target.tagName === "A") {
+          closeMobileMenu();
+        }
+      });
+    }
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeMobileMenu();
+      }
+    });
+
+    if (searchForm && searchInput) {
+      searchForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const keyword = searchInput.value.trim();
+
+        if (keyword.length === 0) {
+          alert("اكتب اسم المنتج أولاً");
+          searchInput.focus();
+          return;
+        }
+
+        const productsSection = document.getElementById("products");
+
+        if (productsSection) {
+          productsSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+          window.dispatchEvent(new CustomEvent("searchProducts", {
+            detail: {
+              keyword: keyword
+            }
+          }));
+        } else {
+          sessionStorage.setItem("rouhSearchKeyword", keyword);
+          window.location.href = "index.html#products";
+        }
+      });
+    }
+
+    if (cartButton) {
+      cartButton.addEventListener("click", function () {
+        const cartItems = getCartItems();
+
+        if (cartItems.length === 0) {
+          alert("السلة فارغة حالياً");
+          return;
+        }
+
+        alert("عدد المنتجات في السلة: " + cartItems.length);
+      });
+    }
+
+    window.addEventListener("cartChanged", updateCartCount);
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 980) {
+        closeMobileMenu();
+      }
+    });
+
+    setActiveLink();
+    updateCartCount();
+  })();
+</script>
+```

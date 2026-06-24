@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>اتصل بنا | Rouh sweet</title>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap");
+
+    :root {
+      --burgundy: #6d1028;
+      --dark-burgundy: #260712;
+      --deep: #140308;
+      --beige: #f4e7d2;
+      --soft-beige: #fff8ed;
+      --gold: #c79a56;
+      --white: #ffffff;
+      --text: #2c1519;
+      --muted: #7b6260;
+      --shadow: 0 18px 45px rgba(38, 7, 18, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Almarai", Tahoma, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(109, 16, 40, 0.16), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(199, 154, 86, 0.18), transparent 28%),
+        linear-gradient(180deg, #fff8ed, #f4e7d2);
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 32px));
+      margin: auto;
+    }
+
+    .template-error {
+      margin: 12px auto;
+      width: min(1200px, calc(100% - 32px));
+      padding: 14px;
+      border-radius: 14px;
+      background: #ffe8e8;
+      color: #7a1010;
+      border: 1px solid #ffb7b7;
+      font-size: 14px;
+    }
+
+    .contact-hero {
+      padding: 75px 0 35px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-box {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      min-height: 360px;
+      padding: 44px;
+      color: var(--soft-beige);
+      background:
+        radial-gradient(circle at 18% 25%, rgba(244, 231, 210, 0.16), transparent 26%),
+        radial-gradient(circle at 90% 20%, rgba(199, 154, 86, 0.22), transparent 26%),
+        linear-gradient(135deg, var(--deep), var(--burgundy), var(--dark-burgundy));
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      color: var(--deep);
+      background: linear-gradient(135deg, var(--beige), var(--gold));
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .contact-hero h1 {
+      margin: 20px 0 14px;
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1.15;
+      color: var(--white);
+    }
+
+    .contact-hero p {
+      color: rgba(255, 248, 237, 0.88);
+      line-height: 2;
+      font-size: 17px;
+      margin: 0;
+      max-width: 650px;
+    }
+
+    .contact-art {
+      min-height: 250px;
+      border-radius: 30px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.04));
+      border: 1px solid rgba(244, 231, 210, 0.22);
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-art strong {
+      display: block;
+      color: var(--beige);
+      font-size: 38px;
+      margin-bottom: 8px;
+    }
+
+    .contact-art span {
+      color: rgba(255, 248, 237, 0.82);
+      line-height: 1.8;
+    }
+
+    .section {
+      padding: 55px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .info-panel,
+    .form-panel {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(109, 16, 40, 0.12);
+      border-radius: 30px;
+      padding: 28px;
+      box-shadow: 0 14px 35px rgba(38, 7, 18, 0.10);
+      backdrop-filter: blur(10px);
+    }
+
+    .panel-title {
+      margin: 0 0 18px;
+      color: var(--dark-burgundy);
+      font-size: 28px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(244, 231, 210, 0.55);
+      border: 1px solid rgba(109, 16, 40, 0.08);
+      margin-bottom: 14px;
+    }
+
+    .info-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      color: var(--soft-beige);
+      background: linear-gradient(135deg, var(--burgundy), var(--dark-burgundy));
+      font-size: 20px;
+      box-shadow: 0 10px 20px rgba(109, 16, 40, 0.20);
+    }
+
+    .info-item h3 {
+      margin: 0 0 6px;
+      color: var(--dark-burgundy);
+      font-size: 18px;
+    }
+
+    .info-item p,
+    .info-item a {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .quick-link {
+      text-decoration: none;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: 0.25s ease;
+    }
+
+    .quick-link.primary {
+      color: var(--soft-beige);
+      background: linear-gradient(135deg, var(--burgundy), var(--dark-burgundy));
+      box-shadow: 0 12px 25px rgba(109, 16, 40, 0.22);
+    }
+
+    .quick-link.secondary {
+      color: var(--burgundy);
+      background: var(--white);
+      border: 1px solid rgba(109, 16, 40, 0.16);
+    }
+
+    .quick-link:hover {
+      transform: translateY(-2px);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .form-group {
+      display: grid;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-weight: 800;
+      color: var(--dark-burgundy);
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid rgba(109, 16, 40, 0.16);
+      background: rgba(255, 248, 237, 0.78);
+      border-radius: 18px;
+      padding: 14px 15px;
+      font-family: "Almarai", Tahoma, Arial, sans-serif;
+      color: var(--text);
+      outline: none;
+      transition: 0.25s ease;
+    }
+
+    .form-group textarea {
+      min-height: 135px;
+      resize: vertical;
+      line-height: 1.8;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: rgba(109, 16, 40, 0.45);
+      box-shadow: 0 0 0 4px rgba(109, 16, 40, 0.09);
+      background: var(--white);
+    }
+
+    .submit-btn {
+      border: none;
+      min-height: 52px;
+      border-radius: 999px;
+      color: var(--soft-beige);
+      background: linear-gradient(135deg, var(--burgundy), var(--dark-burgundy));
+      font-family: "Almarai", Tahoma, Arial, sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 14px 28px rgba(109, 16, 40, 0.24);
+      transition: 0.25s ease;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .success-message {
+      display: none;
+      padding: 15px;
+      border-radius: 18px;
+      background: rgba(244, 231, 210, 0.85);
+      color: var(--burgundy);
+      border: 1px solid rgba(109, 16, 40, 0.14);
+      font-weight: 800;
+      line-height: 1.8;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .contact-box,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        padding: 30px;
+      }
+
+      .form-row,
+      .quick-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact-hero {
+        padding: 45px 0 25px;
+      }
+
+      .section {
+        padding: 40px 0;
+      }
+
+      .info-panel,
+      .form-panel {
+        padding: 20px;
+        border-radius: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="contact-hero">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <span class="tag">نسعد بتواصلكم</span>
+
+            <h1>اتصل بنا</h1>
+
+            <p>
+              فريق Rouh sweet جاهز لخدمتك في طلبات الشوكولاتة، الضيافات،
+              الهدايا، وتجهيز المناسبات الخاصة بتفاصيل فاخرة تليق بذوقك.
+            </p>
+          </div>
+
+          <div class="contact-art">
+            <div>
+              <strong>Rouh sweet</strong>
+              <span>
+                تواصل معنا لتجربة شوكولاتة<br>
+                أكثر فخامة وتميزاً
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+
+          <aside class="info-panel">
+            <h2 class="panel-title">معلومات التواصل</h2>
+
+            <div class="info-item">
+              <div class="info-icon">📍</div>
+              <div>
+                <h3>الموقع</h3>
+                <p>مكة المكرمة - المملكة العربية السعودية</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">☎</div>
+              <div>
+                <h3>رقم الجوال</h3>
+                <a href="tel:05xxxxxxxx">05xxxxxxxx</a>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">✉</div>
+              <div>
+                <h3>البريد الإلكتروني</h3>
+                <a href="mailto:info@rouhsweet.com">info@rouhsweet.com</a>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">⏱</div>
+              <div>
+                <h3>أوقات الخدمة</h3>
+                <p>يومياً من 6 صباحاً حتى 12 مساءً</p>
+              </div>
+            </div>
+
+            <div class="quick-actions">
+              <a href="tel:05xxxxxxxx" class="quick-link primary">اتصال مباشر</a>
+              <a href="https://wa.me/9665xxxxxxxx" class="quick-link secondary" target="_blank" rel="noopener">واتساب</a>
+            </div>
+          </aside>
+
+          <section class="form-panel">
+            <h2 class="panel-title">أرسل طلبك</h2>
+
+            <form class="contact-form" id="contactForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="customerName">الاسم</label>
+                  <input
+                    type="text"
+                    id="customerName"
+                    name="customerName"
+                    placeholder="اكتب اسمك"
+                    maxlength="80"
+                    required
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label for="customerPhone">رقم الجوال</label>
+                  <input
+                    type="tel"
+                    id="customerPhone"
+                    name="customerPhone"
+                    placeholder="05xxxxxxxx"
+                    maxlength="20"
+                    required
+                  >
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="requestType">نوع الطلب</label>
+                  <select id="requestType" name="requestType" required>
+                    <option value="">اختر نوع الطلب</option>
+                    <option value="طلب شوكولاتة">طلب شوكولاتة</option>
+                    <option value="هدايا مناسبات">هدايا مناسبات</option>
+                    <option value="ضيافة واجتماعات">ضيافة واجتماعات</option>
+                    <option value="استفسار عام">استفسار عام</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="orderDate">تاريخ المناسبة</label>
+                  <input type="date" id="orderDate" name="orderDate">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">تفاصيل الطلب</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="اكتب تفاصيل طلبك، الكمية، المناسبة، وطريقة التغليف المطلوبة..."
+                  maxlength="600"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="success-message" id="successMessage">
+                تم تجهيز بيانات رسالتك بنجاح.
+              </div>
+
+              <button type="submit" class="submit-btn">إرسال الطلب</button>
+            </form>
+          </section>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    async function loadTemplate(containerId, filePath) {
+      const container = document.getElementById(containerId);
+
+      if (!container) {
+        console.error("العنصر غير موجود:", containerId);
+        return;
+      }
+
+      try {
+        const response = await fetch(filePath, { cache: "no-cache" });
+
+        if (!response.ok) {
+          throw new Error("تعذر تحميل الملف: " + filePath);
+        }
+
+        const html = await response.text();
+        container.innerHTML = html;
+
+        /*
+          مهم:
+          عند استدعاء header.html أو footer.html بواسطة fetch،
+          بعض المتصفحات لا تشغل JavaScript تلقائياً.
+          لذلك نعيد إنشاء أكواد script حتى تعمل القائمة والسلة والبحث والفوتر.
+        */
+        const scripts = container.querySelectorAll("script");
+
+        scripts.forEach(function (oldScript) {
+          const newScript = document.createElement("script");
+
+          Array.from(oldScript.attributes).forEach(function (attr) {
+            newScript.setAttribute(attr.name, attr.value);
+          });
+
+          newScript.textContent = oldScript.textContent;
+          oldScript.replaceWith(newScript);
+        });
+
+      } catch (error) {
+        console.error(error);
+
+        container.innerHTML = `
+          <div class="template-error">
+            لم يتم تحميل ملف ${filePath}.
+            تأكد أن الملف موجود في نفس المجلد وافتح الصفحة باستخدام Live Server.
+          </div>
+        `;
+      }
+    }
+
+    function initContactForm() {
+      const form = document.getElementById("contactForm");
+      const successMessage = document.getElementById("successMessage");
+
+      if (!form) return;
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("customerName").value.trim();
+        const phone = document.getElementById("customerPhone").value.trim();
+        const requestType = document.getElementById("requestType").value.trim();
+        const orderDate = document.getElementById("orderDate").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (!name || !phone || !requestType || !message) {
+          alert("فضلاً أكمل البيانات المطلوبة");
+          return;
+        }
+
+        const phonePattern = /^[0-9+\s-]{8,20}$/;
+
+        if (!phonePattern.test(phone)) {
+          alert("فضلاً اكتب رقم جوال صحيح");
+          return;
+        }
+
+        const whatsappText =
+          "مرحباً Rouh sweet، لدي طلب جديد:%0A%0A" +
+          "الاسم: " + encodeURIComponent(name) + "%0A" +
+          "الجوال: " + encodeURIComponent(phone) + "%0A" +
+          "نوع الطلب: " + encodeURIComponent(requestType) + "%0A" +
+          "تاريخ المناسبة: " + encodeURIComponent(orderDate || "غير محدد") + "%0A" +
+          "التفاصيل: " + encodeURIComponent(message);
+
+        if (successMessage) {
+          successMessage.classList.add("show");
+        }
+
+        const openWhatsApp = confirm("هل ترغب بإرسال الطلب عبر الواتساب الآن؟");
+
+        if (openWhatsApp) {
+          window.open("https://wa.me/9665xxxxxxxx?text=" + whatsappText, "_blank", "noopener");
+        }
+
+        form.reset();
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      loadTemplate("site-header", "header.html");
+      loadTemplate("site-footer", "footer.html");
+      initContactForm();
+    });
+  </script>
+</body>
+</html>ٍ
