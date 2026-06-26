@@ -1,19 +1,20 @@
-```html
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap");
 
   :root {
-    --burgundy: #0b1f3a;
-    --dark-burgundy: #071629;
-    --deep-burgundy: #020a14;
-    --medium-burgundy: #163b66;
-    --beige: #f4e7d2;
-    --soft-beige: #fff8ed;
-    --gold: #c79a56;
+    --burgundy: #3F6593;
+    --dark-burgundy: #2F4F77;
+    --deep-burgundy: #1E344F;
+    --medium-burgundy: #7F9BBC;
+
+    --beige: #D4D8DD;
+    --soft-beige: #F4F6F8;
+    --gold: #A7B6C6;
     --white: #ffffff;
-    --text-dark: #0b1f3a;
-    --text-soft: #6b7280;
-    --shadow: 0 14px 35px rgba(2, 10, 20, 0.28);
+
+    --text-dark: #1E344F;
+    --text-soft: #66727F;
+    --shadow: 0 14px 35px rgba(30, 52, 79, 0.28);
   }
 
   * {
@@ -30,11 +31,11 @@
     z-index: 999;
     font-family: "Almarai", sans-serif;
     background:
-      radial-gradient(circle at top right, rgba(199, 154, 86, 0.15), transparent 30%),
-      linear-gradient(135deg, #020a14, #071629, #0b1f3a);
+      radial-gradient(circle at top right, rgba(212, 216, 221, 0.22), transparent 30%),
+      linear-gradient(135deg, #1E344F, #2F4F77, #3F6593);
     box-shadow: var(--shadow);
     backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(244, 231, 210, 0.18);
+    border-bottom: 1px solid rgba(212, 216, 221, 0.32);
     direction: rtl;
   }
 
@@ -66,9 +67,9 @@
       linear-gradient(145deg, #ffffff, var(--beige) 35%, var(--gold), var(--burgundy));
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.95),
-      0 12px 28px rgba(0, 0, 0, 0.28),
-      0 0 0 4px rgba(244, 231, 210, 0.12);
-    border: 1px solid rgba(244, 231, 210, 0.75);
+      0 12px 28px rgba(30, 52, 79, 0.28),
+      0 0 0 4px rgba(212, 216, 221, 0.18);
+    border: 1px solid rgba(212, 216, 221, 0.85);
     flex-shrink: 0;
     overflow: hidden;
   }
@@ -80,7 +81,7 @@
     border-radius: 50%;
     object-fit: contain;
     object-position: center;
-    background: #061629;
+    background: #1E344F;
     padding: 6px;
     border: 2px solid rgba(255, 255, 255, 0.95);
   }
@@ -108,8 +109,8 @@
     gap: 7px;
     padding: 6px;
     border-radius: 999px;
-    background: rgba(255, 248, 237, 0.10);
-    border: 1px solid rgba(244, 231, 210, 0.20);
+    background: rgba(244, 246, 248, 0.14);
+    border: 1px solid rgba(212, 216, 221, 0.28);
   }
 
   .nav-links a {
@@ -127,7 +128,7 @@
   .nav-links a.active {
     background: var(--beige);
     color: var(--deep-burgundy);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 8px 18px rgba(30, 52, 79, 0.22);
   }
 
   .mobile-menu-head {
@@ -145,13 +146,13 @@
   }
 
   .search-form {
-    background: rgba(255, 248, 237, 0.92);
+    background: rgba(244, 246, 248, 0.94);
     padding: 5px;
     border-radius: 999px;
     display: flex;
     align-items: center;
-    border: 1px solid rgba(244, 231, 210, 0.65);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(212, 216, 221, 0.75);
+    box-shadow: 0 8px 18px rgba(30, 52, 79, 0.16);
   }
 
   .search-form input {
@@ -166,7 +167,7 @@
   }
 
   .search-form input::placeholder {
-    color: #9b8978;
+    color: #7B8794;
   }
 
   .search-form button {
@@ -183,7 +184,7 @@
 
   .search-form button:hover {
     transform: translateY(-1px);
-    box-shadow: 0 8px 18px rgba(2, 10, 20, 0.28);
+    box-shadow: 0 8px 18px rgba(30, 52, 79, 0.28);
   }
 
   .contact-button {
@@ -194,8 +195,8 @@
     border-radius: 999px;
     font-weight: 800;
     font-family: "Almarai", sans-serif;
-    box-shadow: 0 9px 20px rgba(0, 0, 0, 0.18);
-    border: 1px solid rgba(244, 231, 210, 0.75);
+    box-shadow: 0 9px 20px rgba(30, 52, 79, 0.20);
+    border: 1px solid rgba(212, 216, 221, 0.85);
     transition: 0.25s ease;
     white-space: nowrap;
   }
@@ -207,7 +208,7 @@
 
   .cart-button {
     border: none;
-    background: rgba(255, 248, 237, 0.12);
+    background: rgba(244, 246, 248, 0.14);
     color: var(--soft-beige);
     padding: 12px 17px;
     border-radius: 999px;
@@ -215,14 +216,14 @@
     cursor: pointer;
     position: relative;
     font-family: "Almarai", sans-serif;
-    box-shadow: 0 9px 20px rgba(0, 0, 0, 0.14);
-    border: 1px solid rgba(244, 231, 210, 0.25);
+    box-shadow: 0 9px 20px rgba(30, 52, 79, 0.18);
+    border: 1px solid rgba(212, 216, 221, 0.30);
     transition: 0.25s ease;
   }
 
   .cart-button:hover {
     transform: translateY(-1px);
-    background: rgba(255, 248, 237, 0.20);
+    background: rgba(244, 246, 248, 0.24);
   }
 
   .cart-count {
@@ -244,15 +245,15 @@
   .menu-button {
     display: none;
     border: none;
-    background: rgba(255, 248, 237, 0.92);
+    background: rgba(244, 246, 248, 0.94);
     color: var(--burgundy);
     width: 45px;
     height: 45px;
     border-radius: 15px;
     font-size: 23px;
     cursor: pointer;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(244, 231, 210, 0.75);
+    box-shadow: 0 8px 18px rgba(30, 52, 79, 0.18);
+    border: 1px solid rgba(212, 216, 221, 0.85);
     transition: 0.25s ease;
   }
 
@@ -271,7 +272,7 @@
   .contact-button:focus,
   .nav-links a:focus,
   .mobile-close-button:focus {
-    outline: 3px solid rgba(244, 231, 210, 0.35);
+    outline: 3px solid rgba(212, 216, 221, 0.42);
     outline-offset: 3px;
   }
 
@@ -312,10 +313,10 @@
       padding: 20px;
       border-radius: 28px 0 0 28px;
       background:
-        radial-gradient(circle at top right, rgba(199, 154, 86, 0.16), transparent 35%),
-        linear-gradient(145deg, #020a14, #071629, #0b1f3a);
-      border: 1px solid rgba(244, 231, 210, 0.26);
-      box-shadow: -18px 0 45px rgba(0, 0, 0, 0.35);
+        radial-gradient(circle at top right, rgba(212, 216, 221, 0.20), transparent 35%),
+        linear-gradient(145deg, #1E344F, #2F4F77, #3F6593);
+      border: 1px solid rgba(212, 216, 221, 0.34);
+      box-shadow: -18px 0 45px rgba(30, 52, 79, 0.36);
       transform: translateX(110%);
       visibility: hidden;
       opacity: 0;
@@ -335,7 +336,7 @@
       gap: 12px;
       padding: 0 0 14px;
       margin-bottom: 8px;
-      border-bottom: 1px solid rgba(244, 231, 210, 0.18);
+      border-bottom: 1px solid rgba(212, 216, 221, 0.24);
       color: var(--beige);
     }
 
@@ -350,7 +351,7 @@
       height: 42px;
       border-radius: 14px;
       cursor: pointer;
-      background: rgba(255, 248, 237, 0.92);
+      background: rgba(244, 246, 248, 0.94);
       color: var(--burgundy);
       font-size: 25px;
       font-family: "Almarai", sans-serif;
@@ -363,8 +364,8 @@
       text-align: center;
       padding: 14px 16px;
       border-radius: 18px;
-      background: rgba(255, 248, 237, 0.08);
-      border: 1px solid rgba(244, 231, 210, 0.12);
+      background: rgba(244, 246, 248, 0.10);
+      border: 1px solid rgba(212, 216, 221, 0.18);
     }
 
     .nav-links a:hover,
@@ -382,7 +383,7 @@
       inset: 0;
       z-index: 1000;
       display: block;
-      background: rgba(2, 10, 20, 0.45);
+      background: rgba(30, 52, 79, 0.48);
       opacity: 0;
       visibility: hidden;
       transition: 0.25s ease;
@@ -686,4 +687,3 @@
     updateCartCount();
   })();
 </script>
-```
